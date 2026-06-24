@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let partnerName = "Rihame"; // Replace with dynamic value
     let noClickCount = 0; // Counter for No button clicks
     let noButtonHasFled = false;
+    let yesFontSize = 18;
+    let yesFontSizeLocked = false;
     const compactLayoutMedia = window.matchMedia("(max-width: 900px)");
 
     // Function to create typewriter effect
@@ -252,16 +254,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function fitButtonText(button, preferredFontSize) {
-        const minFontSize = 13;
-        let fontSize = preferredFontSize;
+    function applyYesButtonFontSize(preferredFontSize) {
+        if (!yesFontSizeLocked) {
+            const previousFontSize = yesFontSize;
 
-        button.style.fontSize = `${fontSize}px`;
+            yesButton.style.fontSize = `${preferredFontSize}px`;
 
-        while (fontSize > minFontSize && button.scrollWidth > button.clientWidth) {
-            fontSize -= 1;
-            button.style.fontSize = `${fontSize}px`;
+            if (yesButton.scrollWidth > yesButton.clientWidth) {
+                yesFontSize = previousFontSize;
+                yesFontSizeLocked = true;
+            } else {
+                yesFontSize = preferredFontSize;
+            }
         }
+
+        yesButton.style.fontSize = `${yesFontSize}px`;
     }
     
     yesButton.addEventListener("click", function () {
@@ -297,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             yesButton.style.padding = `${Math.max(10, newYesSize / 2.4)}px ${Math.max(18, newYesSize / 1.2)}px`;
             yesButton.style.maxWidth = "calc(100vw - 32px)";
-            fitButtonText(yesButton, newYesSize);
+            applyYesButtonFontSize(newYesSize);
 
             const noButtonRect = noButton.getBoundingClientRect();
             moveNoButtonAway({
