@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Start typewriter effect for the second line
         const typedTextElement = document.querySelector(".typed-text");
         setTimeout(() => {
-            typeWriterEffect(typedTextElement, "Est ce que tu m'aimeeeees ?");
+            typeWriterEffect(typedTextElement, "À quel point tu m'aimes ?");
         }, 500); // Delay to allow smooth transition
     }
 
