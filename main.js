@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     yesButton.addEventListener("click", function () {
-        questionText.innerHTML = `<span class="partner-name">${partnerName}</span><br><span class="love-text">Je t'aimeeee aussi baby ❤️</span>`;
+        questionText.innerHTML = `<span class="partner-name">${partnerName}</span><br><span class="love-text">Je t'aimeeee trop aussi baby ❤️</span>`;
         choiceBox.style.display = "none"; // Hide choices
         threedBox.classList.remove("hide");
 
