@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image" href="assets/favicon.ico">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+   
+    <meta name="description" content="Create and send a personalized Valentine's Day card with beautiful animation. It's a lovely gift idea for couples or friends!" />
+</head>
+
+<body>
+
+    <audio id="background-music">
+        <source src="/assets/intro.mp3" type="audio/mpeg">
+        Your Browser does not supprt the audio element.
+    </audio>
+    
+    <!-- Heart-shaped SVG as a background -->
+    <div class="heart-background">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient id="heart-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop offset="0%" stop-color="var(--color1)" />
+                    <stop offset="50%" stop-color="var(--color2)" />
+                    <stop offset="100%" stop-color="var(--color3)" />
+                </radialGradient>
+            </defs>
+            <path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z" fill="url(#heart-gradient)" />
+        </svg>
+    </div>
+
+    <div class="body-wrapper background">
+
+
+        <div class="main-wrapper">
+            <div class="aside-wrapper video-aside-wrapper hide">
+                <aside>
+                    <div class="aside-left-wrapper">
+                        <div class="aside left">
+                            <div class="video-card">
+                                <div class="glare"></div>
+                                <video src="/assets/funny video.mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="main-section-wrapper">
+                <div class="threed-wrapper">
+                    <div class="threed-box hide">
+                        <img src="assets/bears.gif" alt="Cute bears kissing">
+                    </div>
+                </div>  
+                <div class="question-wrapper">
+                    <div class="question-box">
+                        <h1>Bébé j'ai une question ...</h1>
+                    </div>
+                </div>  
+                <div class="choice-wrapper">
+                    <div class="click-box">
+                        <button>Clique ici</button>
+                    </div>
+                    <div class="choice-box hide">
+                        <button>Oui ❤️</button>
+                        <button>Non 😒</button>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="aside-wrapper audio-aside-wrapper">
+                <aside>
+                    <div class="aside-wrapper">
+                        <div class="aside right">
+                            <button id="mute-button"><i class="fa fa-volume-up"></i></button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+   
+    </div>
+    
+<!-- Scripts -->
+    <script src="intro.js" defer></script>
+    <script src="index.js"></script>
+    <script src="card.js" defer></script>
+    <script src="main.js" ></script>
+</body>
+</html>
