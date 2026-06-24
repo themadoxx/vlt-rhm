@@ -329,6 +329,9 @@ a {
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: 0;
+    max-width: calc(100vw - 32px);
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 

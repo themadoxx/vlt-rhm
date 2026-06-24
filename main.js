@@ -251,6 +251,18 @@ document.addEventListener("DOMContentLoaded", function () {
             noButton.style.top = `${nextPosition.y}px`;
         });
     }
+
+    function fitButtonText(button, preferredFontSize) {
+        const minFontSize = 13;
+        let fontSize = preferredFontSize;
+
+        button.style.fontSize = `${fontSize}px`;
+
+        while (fontSize > minFontSize && button.scrollWidth > button.clientWidth) {
+            fontSize -= 1;
+            button.style.fontSize = `${fontSize}px`;
+        }
+    }
     
     yesButton.addEventListener("click", function () {
         questionText.innerHTML = `<span class="partner-name">${partnerName}</span><br><span class="love-text">Je t'aimeeee aussi baby ❤️</span>`;
@@ -283,8 +295,9 @@ document.addEventListener("DOMContentLoaded", function () {
             noButton.style.fontSize = `${newNoSize}px`;
             noButton.style.padding = `${Math.max(4, newNoSize / 2)}px ${Math.max(8, newNoSize)}px`;
 
-            yesButton.style.fontSize = `${newYesSize}px`;
             yesButton.style.padding = `${Math.max(10, newYesSize / 2.4)}px ${Math.max(18, newYesSize / 1.2)}px`;
+            yesButton.style.maxWidth = "calc(100vw - 32px)";
+            fitButtonText(yesButton, newYesSize);
 
             const noButtonRect = noButton.getBoundingClientRect();
             moveNoButtonAway({
